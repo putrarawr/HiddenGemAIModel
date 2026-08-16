@@ -1,8 +1,8 @@
 {
     "version": "1.0",
-    "exported_at": "2026-08-16T14:56:42+00:00",
+    "exported_at": "2026-08-16T15:01:04+00:00",
     "total_categories": 5,
-    "total_models": 51,
+    "total_models": 103,
     "categories": [
         {
             "name": "Coding & Software Dev",
@@ -1716,6 +1716,1726 @@
             "is_verified_gem": false,
             "review_status": "published",
             "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "opt-125m",
+            "slug": "hf-facebook-opt-125m",
+            "author": "facebook",
+            "parameter_size": 0.13,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "vision",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Large model size may require significant computational resources",
+                    "Technical limitation 1"
+                ],
+                "pros": [
+                    "High parameter count for detailed image processing",
+                    "Open-weights model by prominent researcher Facebook",
+                    "Optimized for image recognition tasks"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"opt-125m\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run opt-125m",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('facebook/opt-125m')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "nemotron-3.5-asr-streaming-0.6b-gguf",
+            "slug": "hf-handy-computer-nemotron-35-asr-streaming-06b-gguf",
+            "author": "handy-computer",
+            "parameter_size": 0.6,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "High computational requirements for inference (Q4_K_M ideal quantization)",
+                    "Technical limitation due to the hardware requirements (8GB+ RAM)"
+                ],
+                "pros": [
+                    "Large model size suitable for complex tasks (0.6B)",
+                    "Open-weights model for customizations and optimizations",
+                    "Highly scalable due to the model's size and architecture"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"nemotron-3.5-asr-streaming-0.6b-gguf\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run nemotron-3.5-asr-streaming-0.6b-gguf",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('handy-computer/nemotron-3.5-asr-streaming-0.6b-gguf')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "parakeet-ctc-1.1b",
+            "slug": "hf-nvidia-parakeet-ctc-11b",
+            "author": "nvidia",
+            "parameter_size": 1.1,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation: High computational resources required",
+                    "Technical limitation 1"
+                ],
+                "pros": [
+                    "Efficient for large-scale tasks",
+                    "High accuracy",
+                    "High model size"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\\\"model\\\": \\\"parakeet-ctc-1.1b\\\", \\\"prompt\\\": \\\"Hello\\\"}'",
+                "ollama": "ollama run parakeet-ctc-1.1b",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('nvidia/parakeet-ctc-1.1b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "parakeet-unified-en-0.6b-gguf",
+            "slug": "hf-handy-computer-parakeet-unified-en-06b-gguf",
+            "author": "handy-computer",
+            "parameter_size": 0.6,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "High memory requirements for training and deployment"
+                ],
+                "pros": [
+                    "Advantages in open-weight architecture",
+                    "Large model size with 0.6B parameters",
+                    "Wide range of capabilities in the en-0.6b-gguf model"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"parakeet-unified-en-0.6b-gguf\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run parakeet-unified-en-0.6b-gguf",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('handy-computer/parakeet-unified-en-0.6b-gguf')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+            "slug": "hf-hauhaucs-gemma-4-e4b-uncensored-hauhaucs-aggressive",
+            "author": "HauhauCS",
+            "parameter_size": 4,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Uncensored model with possible explicit content"
+                ],
+                "pros": [
+                    "High parameter size of 4B",
+                    "Aggressive version of HauhauCS model",
+                    "Open-weights for customization"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Gemma-4-E4B-Uncensored-HauhauCS-Aggressive\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "nemotron-3.5-asr-streaming-0.6b",
+            "slug": "hf-nvidia-nemotron-35-asr-streaming-06b",
+            "author": "nvidia",
+            "parameter_size": 0.6,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation due to specific licensing"
+                ],
+                "pros": [
+                    "High parameter size of 0.6B",
+                    "Open-weights model by nvidia",
+                    "Streamed ASR model"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\\\"model\\\": \\\"nemotron-3.5-asr-streaming-0.6b\\\", \\\"prompt\\\": \\\"Hello\\\"}'",
+                "ollama": "ollama run nemotron-3.5-asr-streaming-0.6b",
+                "python": "from transformers import AutoModelForCausalLM\\nnodel = AutoModelForCausalLM.from_pretrained('nvidia/nemotron-3.5-asr-streaming-0.6b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen3.5-9B-GGUF",
+            "slug": "hf-unsloth-qwen35-9b-gguf",
+            "author": "unsloth",
+            "parameter_size": 9,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 16,
+                "min_ram_gb": 32,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Limited information on model tuning and optimization"
+                ],
+                "pros": [
+                    "Leveraging 9B parameters for improved performance",
+                    "Released as an open-weights model for community use",
+                    "Utilizes Apache-2.0 license for open-source development"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Qwen3.5-9B-GGUF\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Qwen3.5-9B-GGUF",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('unsloth/Qwen3.5-9B-GGUF')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen3.5-4B-GGUF",
+            "slug": "hf-unsloth-qwen35-4b-gguf",
+            "author": "unsloth",
+            "parameter_size": 4,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Requires extensive computational resources, potentially limiting deployment on low-end hardware"
+                ],
+                "pros": [
+                    "High computational efficiency with 4B parameter size",
+                    "Large model architecture supports complex tasks",
+                    "Publicly available under the Apache 2.0 license"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Qwen3.5-4B-GGUF\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Qwen3.5-4B-GGUF",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('unsloth/Qwen3.5-4B-GGUF')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Flux2-Klein-9B-True-V2",
+            "slug": "hf-wikeeyang-flux2-klein-9b-true-v2",
+            "author": "wikeeyang",
+            "parameter_size": 9,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Not specified"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation due to significant model size and potential memory constraints"
+                ],
+                "pros": [
+                    "Highly parameterized model (9B)",
+                    "Open-weights model available for modification and fine-tuning",
+                    "Wide-ranging potential applications in NLP tasks"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Flux2-Klein-9B-True-V2\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Flux2-Klein-9B-True-V2",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('wikeeyang/Flux2-Klein-9B-True-V2')"
+            },
+            "is_verified_gem": false,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF",
+            "slug": "hf-rippertnt-hyperclovax-seed-text-instruct-15b-q4-k-m-gguf",
+            "author": "rippertnt",
+            "parameter_size": 1.5,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation: Potential compatibility issues with older systems"
+                ],
+                "pros": [
+                    "Advantageous parameter size of 1.5B",
+                    "Open-weights model allowing flexible modifications",
+                    "High-end AI model suitable for complex tasks"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('rippertnt/HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen3.5-9B",
+            "slug": "hf-qwen-qwen35-9b",
+            "author": "Qwen",
+            "parameter_size": 9,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "vision",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "9B parameter size may require significant computational resources"
+                ],
+                "pros": [
+                    "Large model size allows for more context-dependent responses",
+                    "9B parameter size indicates advanced language understanding",
+                    "Open-weights model allows for modification and extension"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Qwen3.5-9B\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Qwen3.5-9B",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen3.5-9B')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen2.5-VL-7B-Instruct",
+            "slug": "hf-qwen-qwen25-vl-7b-instruct",
+            "author": "Qwen",
+            "parameter_size": 7,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "vision",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task vision",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-qwen25-vl-7b-instruct\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-qwen25-vl-7b-instruct",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen2.5-VL-7B-Instruct')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen3.5-4B",
+            "slug": "hf-qwen-qwen35-4b",
+            "author": "Qwen",
+            "parameter_size": 4,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation: Requires significant computational resources",
+                    "Technical limitation: May have limited generalizability"
+                ],
+                "pros": [
+                    "Optimized for 4B parameter size",
+                    "Apache-2.0 licensed open-weights model",
+                    "Contributed by Qwen"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Qwen3.5-4B\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Qwen3.5-4B",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen3.5-4B')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen2.5-VL-3B-Instruct",
+            "slug": "hf-qwen-qwen25-vl-3b-instruct",
+            "author": "Qwen",
+            "parameter_size": 3,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "vision",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 3B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task vision",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-qwen25-vl-3b-instruct\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-qwen25-vl-3b-instruct",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen2.5-VL-3B-Instruct')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen3-VL-8B-Instruct",
+            "slug": "hf-qwen-qwen3-vl-8b-instruct",
+            "author": "Qwen",
+            "parameter_size": 8,
+            "context_window": 8192,
+            "access_type": "open_weights",
+            "category_slug": "vision",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task vision",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-qwen3-vl-8b-instruct\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-qwen3-vl-8b-instruct",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-VL-8B-Instruct')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: deepseek-r1:7b",
+            "slug": "ollama-deepseek-r17b",
+            "author": "DeepSeek",
+            "parameter_size": 7,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"deepseek-ollama-deepseek-r17b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run deepseek-ollama-deepseek-r17b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('DeepSeek/Ollama: deepseek-r1:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: deepseek-r1:14b",
+            "slug": "ollama-deepseek-r114b",
+            "author": "DeepSeek",
+            "parameter_size": 14,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 14B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"deepseek-ollama-deepseek-r114b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run deepseek-ollama-deepseek-r114b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('DeepSeek/Ollama: deepseek-r1:14b')"
+            },
+            "is_verified_gem": false,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5:0.5b",
+            "slug": "ollama-qwen2505b",
+            "author": "Qwen",
+            "parameter_size": 0.5,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 0.5B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-ollama-qwen2505b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-ollama-qwen2505b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5:0.5b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5:1.5b",
+            "slug": "ollama-qwen2515b",
+            "author": "Qwen",
+            "parameter_size": 1.5,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 16,
+                "min_ram_gb": 32,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "High computational power requirements",
+                    "Large memory usage"
+                ],
+                "pros": [
+                    "Large 1.5B parameter size",
+                    "High level of training and research sophistication",
+                    "Authoritative model by Qwen"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Ollama: qwen2.5:1.5b\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Ollama: qwen2.5:1.5b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5:1.5b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5:3b",
+            "slug": "ollama-qwen253b",
+            "author": "Qwen",
+            "parameter_size": 3,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 3B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-ollama-qwen253b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-ollama-qwen253b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5:3b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5:7b",
+            "slug": "ollama-qwen257b",
+            "author": "Qwen",
+            "parameter_size": 7,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-ollama-qwen257b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-ollama-qwen257b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5:14b",
+            "slug": "ollama-qwen2514b",
+            "author": "Qwen",
+            "parameter_size": 14,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 14B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-ollama-qwen2514b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-ollama-qwen2514b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5:14b')"
+            },
+            "is_verified_gem": false,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5-coder:0.5b",
+            "slug": "ollama-qwen25-coder05b",
+            "author": "Qwen",
+            "parameter_size": 0.5,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 0.5B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task coding",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-ollama-qwen25-coder05b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-ollama-qwen25-coder05b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5-coder:0.5b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5-coder:3b",
+            "slug": "ollama-qwen25-coder3b",
+            "author": "Qwen",
+            "parameter_size": 3,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 3B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task coding",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"qwen-ollama-qwen25-coder3b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run qwen-ollama-qwen25-coder3b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5-coder:3b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: qwen2.5-coder:14b",
+            "slug": "ollama-qwen25-coder14b",
+            "author": "Qwen",
+            "parameter_size": 14,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "14B parameter size may be computationally expensive"
+                ],
+                "pros": [
+                    "Improved coding efficiency",
+                    "Enhanced coding accuracy",
+                    "Flexibility in code generation"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Ollama: qwen2.5-coder:14b\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Ollama: qwen2.5-coder:14b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Ollama: qwen2.5-coder:14b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: llama3.1:8b",
+            "slug": "ollama-llama318b",
+            "author": "Meta",
+            "parameter_size": 8,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"meta-ollama-llama318b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run meta-ollama-llama318b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Ollama: llama3.1:8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: llama3:8b",
+            "slug": "ollama-llama38b",
+            "author": "Meta",
+            "parameter_size": 8,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"meta-ollama-llama38b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run meta-ollama-llama38b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Ollama: llama3:8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: phi3.5:3.8b",
+            "slug": "ollama-phi3538b",
+            "author": "Microsoft",
+            "parameter_size": 3.8,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 3.8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"microsoft-ollama-phi3538b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run microsoft-ollama-phi3538b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Microsoft/Ollama: phi3.5:3.8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: phi3:3.8b",
+            "slug": "ollama-phi338b",
+            "author": "Microsoft",
+            "parameter_size": 3.8,
+            "context_window": 4096,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 3.8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"microsoft-ollama-phi338b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run microsoft-ollama-phi338b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Microsoft/Ollama: phi3:3.8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: gemma:2b",
+            "slug": "ollama-gemma2b",
+            "author": "Google",
+            "parameter_size": 2,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 2B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"google-ollama-gemma2b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run google-ollama-gemma2b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Google/Ollama: gemma:2b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: gemma:7b",
+            "slug": "ollama-gemma7b",
+            "author": "Google",
+            "parameter_size": 7,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 16,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation 1: High computational requirement"
+                ],
+                "pros": [
+                    "High parameter size of 7B",
+                    "Developed by Google"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Ollama: gemma:7b\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Ollama: gemma:7b",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('Google/Ollama: gemma:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: smollm2:135m",
+            "slug": "ollama-smollm2135m",
+            "author": "HuggingFace",
+            "parameter_size": 0.13,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 0.13B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"huggingface-ollama-smollm2135m\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run huggingface-ollama-smollm2135m",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('HuggingFace/Ollama: smollm2:135m')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: smollm2:360m",
+            "slug": "ollama-smollm2360m",
+            "author": "HuggingFace",
+            "parameter_size": 0.36,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 0.36B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"huggingface-ollama-smollm2360m\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run huggingface-ollama-smollm2360m",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('HuggingFace/Ollama: smollm2:360m')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: smollm2:1.7b",
+            "slug": "ollama-smollm217b",
+            "author": "HuggingFace",
+            "parameter_size": 1.7,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 1.7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"huggingface-ollama-smollm217b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run huggingface-ollama-smollm217b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('HuggingFace/Ollama: smollm2:1.7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: tinyllama:1.1b",
+            "slug": "ollama-tinyllama11b",
+            "author": "TinyLlama",
+            "parameter_size": 1.1,
+            "context_window": 2048,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 1.1B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"tinyllama-ollama-tinyllama11b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run tinyllama-ollama-tinyllama11b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('TinyLlama/Ollama: tinyllama:1.1b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: mistral:7b",
+            "slug": "ollama-mistral7b",
+            "author": "Mistral",
+            "parameter_size": 7,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"mistral-ollama-mistral7b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run mistral-ollama-mistral7b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Mistral/Ollama: mistral:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: codellama:7b",
+            "slug": "ollama-codellama7b",
+            "author": "Meta",
+            "parameter_size": 7,
+            "context_window": 16384,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Large model size requires significant computational resources"
+                ],
+                "pros": [
+                    "High-parameter model with 7B size for accurate responses",
+                    "Official library model by Meta for reliable performance"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Ollama: codellama:7b\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Ollama: codellama:7b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Ollama: codellama:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: codellama:13b",
+            "slug": "ollama-codellama13b",
+            "author": "Meta",
+            "parameter_size": 13,
+            "context_window": 16384,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 13B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task coding",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"meta-ollama-codellama13b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run meta-ollama-codellama13b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Ollama: codellama:13b')"
+            },
+            "is_verified_gem": false,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: starcoder2:7b",
+            "slug": "ollama-starcoder27b",
+            "author": "BigCode",
+            "parameter_size": 7,
+            "context_window": 16384,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task coding",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"bigcode-ollama-starcoder27b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run bigcode-ollama-starcoder27b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('BigCode/Ollama: starcoder2:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: stable-code:3b",
+            "slug": "ollama-stable-code3b",
+            "author": "Stability",
+            "parameter_size": 3,
+            "context_window": 16384,
+            "access_type": "gguf",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 3B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task coding",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"stability-ollama-stable-code3b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run stability-ollama-stable-code3b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Stability/Ollama: stable-code:3b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: yi:6b",
+            "slug": "ollama-yi6b",
+            "author": "01.AI",
+            "parameter_size": 6,
+            "context_window": 4096,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 6B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"01ai-ollama-yi6b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run 01ai-ollama-yi6b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('01.AI/Ollama: yi:6b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: yi:9b",
+            "slug": "ollama-yi9b",
+            "author": "01.AI",
+            "parameter_size": 9,
+            "context_window": 4096,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 9B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"01ai-ollama-yi9b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run 01ai-ollama-yi9b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('01.AI/Ollama: yi:9b')"
+            },
+            "is_verified_gem": false,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: openhermes:7b",
+            "slug": "ollama-openhermes7b",
+            "author": "NousResearch",
+            "parameter_size": 7,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"nousresearch-ollama-openhermes7b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run nousresearch-ollama-openhermes7b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('NousResearch/Ollama: openhermes:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: hermes3:8b",
+            "slug": "ollama-hermes38b",
+            "author": "NousResearch",
+            "parameter_size": 8,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"nousresearch-ollama-hermes38b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run nousresearch-ollama-hermes38b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('NousResearch/Ollama: hermes3:8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: zephyr:7b",
+            "slug": "ollama-zephyr7b",
+            "author": "HuggingFace",
+            "parameter_size": 7,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "very large parameter size (7B) may require significant resources to train, fine-tune or test",
+                    "technical limitation 1"
+                ],
+                "pros": [
+                    "large model size, possibly better performance",
+                    "official model from a well-known author and library",
+                    "may have a wide range of applications and fine-tuning options"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Ollama: zephyr:7b\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Ollama: zephyr:7b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('HuggingFace/Ollama: zephyr:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: orca2:7b",
+            "slug": "ollama-orca27b",
+            "author": "Microsoft",
+            "parameter_size": 7,
+            "context_window": 4096,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"microsoft-ollama-orca27b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run microsoft-ollama-orca27b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Microsoft/Ollama: orca2:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: granite3.1-dense:2b",
+            "slug": "ollama-granite31-dense2b",
+            "author": "IBM",
+            "parameter_size": 2,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 2B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"ibm-ollama-granite31-dense2b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run ibm-ollama-granite31-dense2b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('IBM/Ollama: granite3.1-dense:2b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: granite3.1-dense:8b",
+            "slug": "ollama-granite31-dense8b",
+            "author": "IBM",
+            "parameter_size": 8,
+            "context_window": 128000,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 8B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"ibm-ollama-granite31-dense8b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run ibm-ollama-granite31-dense8b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('IBM/Ollama: granite3.1-dense:8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: mathstral:7b",
+            "slug": "ollama-mathstral7b",
+            "author": "Mistral",
+            "parameter_size": 7,
+            "context_window": 32768,
+            "access_type": "gguf",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 6,
+                "min_ram_gb": 12,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 7B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task research",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"mistral-ollama-mathstral7b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run mistral-ollama-mathstral7b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Mistral/Ollama: mathstral:7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: llava:13b",
+            "slug": "ollama-llava13b",
+            "author": "Llava",
+            "parameter_size": 13,
+            "context_window": 4096,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 8,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 13B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"llava-ollama-llava13b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run llava-ollama-llava13b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Llava/Ollama: llava:13b')"
+            },
+            "is_verified_gem": false,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: moondream:1.4b",
+            "slug": "ollama-moondream14b",
+            "author": "Vikhyatk",
+            "parameter_size": 1.4,
+            "context_window": 2048,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 1.4B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"vikhyatk-ollama-moondream14b\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run vikhyatk-ollama-moondream14b",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Vikhyatk/Ollama: moondream:1.4b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Ollama: nomic-embed-text:v1.5",
+            "slug": "ollama-nomic-embed-textv15",
+            "author": "Nomic",
+            "parameter_size": 0.13,
+            "context_window": 8192,
+            "access_type": "gguf",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Context window terbatas bila dijalankan tanpa GPU VRAM besar"
+                ],
+                "pros": [
+                    "Efisien untuk model 0.13B pada hardware kelas konsumen",
+                    "Performa seimbang untuk task low-spec",
+                    "Mendukung kuantisasi GGUF Q4_K_M"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"nomic-ollama-nomic-embed-textv15\", \"prompt\": \"Halo\"}'",
+                "ollama": "ollama run nomic-ollama-nomic-embed-textv15",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Nomic/Ollama: nomic-embed-text:v1.5')"
+            },
+            "is_verified_gem": true,
+            "review_status": "needs_review",
+            "source": "ollama",
             "benchmark_scores": []
         }
     ]

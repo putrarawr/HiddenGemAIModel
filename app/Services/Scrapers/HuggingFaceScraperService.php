@@ -11,61 +11,64 @@ class HuggingFaceScraperService
     protected string $baseUrl = 'https://huggingface.co/api/models';
 
     /**
-     * Fetch open-weights AI models (small <=14B) from Hugging Face Hub API.
+     * Fetch open-weights AI models (small <=14B) from Hugging Face Hub API across multiple queries.
      *
      * @param int $limit
      * @return array
      */
-    public function fetchOpenWeightModels(int $limit = 30): array
+    public function fetchOpenWeightModels(int $limit = 60): array
     {
         try {
-            $response = Http::timeout(30)->get($this->baseUrl, [
-                'sort' => 'downloads',
-                'direction' => -1,
-                'limit' => $limit,
-                'full' => 'true',
-                'filter' => 'text-generation',
-            ]);
+            $filters = ['text-generation', 'gguf', 'conversational'];
+            $allModels = [];
+            $seenIds = [];
 
-            if ($response->failed()) {
-                Log::error('HuggingFace scraper failed to fetch models', [
-                    'status' => $response->status(),
-                    'body' => $response->body(),
+            foreach ($filters as $filter) {
+                $response = Http::timeout(30)->get($this->baseUrl, [
+                    'sort' => 'downloads',
+                    'direction' => -1,
+                    'limit' => $limit,
+                    'full' => 'true',
+                    'filter' => $filter,
                 ]);
-                return [];
-            }
 
-            $models = $response->json();
-            $filteredModels = [];
+                if ($response->successful()) {
+                    $models = $response->json() ?? [];
+                    foreach ($models as $item) {
+                        $modelId = $item['id'] ?? '';
+                        if (empty($modelId) || in_array($modelId, $seenIds)) {
+                            continue;
+                        }
 
-            foreach ($models as $item) {
-                $modelId = $item['id'] ?? '';
-                $idParts = explode('/', $modelId);
-                $author = count($idParts) > 1 ? $idParts[0] : 'HuggingFace';
-                $name = count($idParts) > 1 ? $idParts[1] : $modelId;
+                        $idParts = explode('/', $modelId);
+                        $author = count($idParts) > 1 ? $idParts[0] : 'HuggingFace';
+                        $name = count($idParts) > 1 ? $idParts[1] : $modelId;
 
-                $paramSize = $this->extractParameterSize($modelId);
+                        $paramSize = $this->extractParameterSize($modelId);
 
-                // Filter models <= 14B
-                if ($paramSize <= 14.0 && $paramSize > 0) {
-                    $tags = $item['tags'] ?? [];
-                    $license = $this->extractLicense($tags);
+                        // Filter models <= 14B and > 0B
+                        if ($paramSize <= 14.0 && $paramSize > 0) {
+                            $seenIds[] = $modelId;
+                            $tags = $item['tags'] ?? [];
+                            $license = $this->extractLicense($tags);
 
-                    $filteredModels[] = [
-                        'name' => $name,
-                        'slug' => Str::slug("{$author}-{$name}"),
-                        'author' => $author,
-                        'parameter_size' => $paramSize,
-                        'context_window' => 4096,
-                        'access_type' => 'open_weights',
-                        'source' => 'huggingface',
-                        'description' => "Open-weights model by {$author}. License: {$license}",
-                        'raw_metadata' => $item,
-                    ];
+                            $allModels[] = [
+                                'name' => $name,
+                                'slug' => Str::slug("hf-{$author}-{$name}"),
+                                'author' => $author,
+                                'parameter_size' => $paramSize,
+                                'context_window' => 8192,
+                                'access_type' => 'open_weights',
+                                'source' => 'huggingface',
+                                'description' => "Open-weights model by {$author}. License: {$license}",
+                                'raw_metadata' => $item,
+                            ];
+                        }
+                    }
                 }
             }
 
-            return $filteredModels;
+            return $allModels;
         } catch (\Throwable $e) {
             Log::error('HuggingFace scraper exception: ' . $e->getMessage());
             return [];
@@ -79,6 +82,9 @@ class HuggingFaceScraperService
     {
         if (preg_match('/(\d+(?:\.\d+)?)\s*b/i', $text, $matches)) {
             return (float) $matches[1];
+        }
+        if (preg_match('/(\d+(?:\.\d+)?)\s*m/i', $text, $matches)) {
+            return round((float) $matches[1] / 1000.0, 2);
         }
         return 0.0;
     }

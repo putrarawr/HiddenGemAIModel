@@ -1,19 +1,26 @@
 # Hidden Gem AI Discovery Hub
 
-Agregator model AI terotomatisasi untuk mengindeks model-model AI berukuran efisien (<=14B parameters) yang siap dijalankan pada spesifikasi laptop terjangkau (8GB - 16GB RAM).
+Agregator model AI terotomatisasi untuk mengindeks 103+ model AI berukuran efisien (<=14B parameters) yang siap dijalankan pada spesifikasi laptop terjangkau (8GB - 16GB RAM).
 
 Repository URL: https://github.com/putrarawr/HiddenGemAIModel
 
 ---
 
+## Preview Antarmuka Application
+
+![Hidden Gem AI Discovery Hub Interface Preview](docs/preview.png)
+
+---
+
 ## Fitur Utama
 
-- Automated Model Mining: Indeks terotomatisasi dari OpenRouter Free Models, Hugging Face Hub Open-Weights, dan Ollama Library.
+- 103+ Curated AI Models Dataset: Mengindeks lebih dari 103 model AI efisien (<=14B) dari berbagai sumber registry ternama.
+- Automated Multi-Source Mining: Indeks terotomatisasi dari OpenRouter Free Models, Hugging Face Hub Open-Weights, Ollama Library, dan Groq Cloud LPU API.
 - Duplicate Validation & Skip System: Skrip sinkronisasi mendeteksi model yang sudah terindeks berdasarkan slug dan metadata untuk mencegah duplikasi data.
 - Hardware RAM Fit Scoring: Mengkategorikan kebutuhan RAM laptop (Tier 8GB, 12GB, 16GB) berdasarkan estimasi kuantisasi 4-bit (Q4_K_M).
 - One-Click Execution Config: Menyediakan perintah instan untuk Ollama CLI, Python SDK (Hugging Face Transformers), dan cURL HTTP API.
-- Direct Official Documentation Link: Setiap model memiliki tautan langsung ke halaman dokumentasi resmi AI (OpenRouter, Hugging Face Hub, Ollama Library).
-- Obsidian Liquid Glass UI: Antarmuka modern dengan komponen kaca cair, animasi Framer Motion, filter kategori interaktif, pagination, skeleton loader, dan switch mode gelap/terang.
+- Direct Official Documentation Link: Setiap model memiliki tautan langsung ke halaman dokumentasi resmi AI (OpenRouter, Hugging Face Hub, Ollama Library, Groq Cloud).
+- Obsidian Liquid Glass UI: Antarmuka modern dengan komponen kaca cair, animasi Framer Motion, filter kategori interaktif, pagination (9 model per halaman), skeleton loader, dan switch mode gelap/terang.
 
 ---
 
@@ -80,7 +87,7 @@ php artisan key:generate
 
 ### 4. Migrasi Database dan Seed Dataset Awal
 
-Jalankan perintah migrasi tabel database dan impor dataset 41 model AI terkurasi:
+Jalankan perintah migrasi tabel database dan impor dataset 103 model AI terkurasi:
 
 ```bash
 php artisan migrate --force
@@ -115,12 +122,12 @@ php artisan app:sync-models
 ```
 
 Opsi Perintah:
-- Sync khusus sumber tertentu: `php artisan app:sync-models --source=openrouter` (opsi: `all`, `openrouter`, `huggingface`, `ollama`).
+- Sync khusus sumber tertentu: `php artisan app:sync-models --source=openrouter` (opsi: `all`, `openrouter`, `huggingface`, `ollama`, `groq`).
 - Paksa timpa model lama: `php artisan app:sync-models --force`.
 
 ### 2. Ekspor Dataset Model ke File JSON
 
-Untuk mengekspor seluruh data model AI dan kategori ke dataset portabel JSON:
+Untuk mengekspor seluruh data 103 model AI dan kategori ke dataset portabel JSON:
 
 ```bash
 php artisan app:export-models
