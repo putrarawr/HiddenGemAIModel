@@ -6,6 +6,7 @@ use App\Models\AiModel;
 use App\Models\Category;
 use App\Models\IngestionLog;
 use App\Services\Extractor\LlmExtractorService;
+use App\Services\Scrapers\GroqCloudScraperService;
 use App\Services\Scrapers\HuggingFaceScraperService;
 use App\Services\Scrapers\OllamaScraperService;
 use App\Services\Scrapers\OpenRouterScraperService;
@@ -21,7 +22,7 @@ class SyncModelsCommand extends Command
      * @var string
      */
     protected $signature = 'app:sync-models 
-                            {--source=all : Source to sync (all, openrouter, huggingface, ollama)} 
+                            {--source=all : Source to sync (all, openrouter, huggingface, ollama, groq)} 
                             {--force : Force overwrite existing models instead of skipping duplicates}';
 
     /**
@@ -29,7 +30,7 @@ class SyncModelsCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Sync AI models from OpenRouter, HuggingFace, and Ollama, skip duplicates, run LLM extraction agent, and index hidden gems.';
+    protected $description = 'Sync AI models from OpenRouter, HuggingFace, Ollama, and Groq Cloud, skip duplicates, run LLM extraction agent, and index hidden gems.';
 
     /**
      * Execute the console command.
@@ -38,6 +39,7 @@ class SyncModelsCommand extends Command
         OpenRouterScraperService $openRouterScraper,
         HuggingFaceScraperService $huggingFaceScraper,
         OllamaScraperService $ollamaScraper,
+        GroqCloudScraperService $groqScraper,
         LlmExtractorService $extractor
     ): int {
         $startedAt = Carbon::now();
@@ -71,6 +73,14 @@ class SyncModelsCommand extends Command
             $ollamaModels = $ollamaScraper->fetchModels();
             $this->info('Found ' . count($ollamaModels) . ' Ollama models.');
             $scrapedModels = array_merge($scrapedModels, $ollamaModels);
+        }
+
+        // Scrape Groq Cloud
+        if ($sourceOption === 'all' || $sourceOption === 'groq') {
+            $this->info('Scraping Groq Cloud API models...');
+            $groqModels = $groqScraper->fetchModels();
+            $this->info('Found ' . count($groqModels) . ' Groq Cloud models.');
+            $scrapedModels = array_merge($scrapedModels, $groqModels);
         }
 
         $itemsProcessed = 0;

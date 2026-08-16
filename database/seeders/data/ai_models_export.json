@@ -1,8 +1,8 @@
 {
     "version": "1.0",
-    "exported_at": "2026-08-16T14:53:22+00:00",
+    "exported_at": "2026-08-16T14:56:42+00:00",
     "total_categories": 5,
-    "total_models": 41,
+    "total_models": 51,
     "categories": [
         {
             "name": "Coding & Software Dev",
@@ -1388,6 +1388,334 @@
             "is_verified_gem": true,
             "review_status": "published",
             "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: ALLaM-2-7b",
+            "slug": "groq-sdaia-allam-2-7b",
+            "author": "SDAIA",
+            "parameter_size": 7,
+            "context_window": 4096,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation 1: Requires specialized hardware (Groq LPU Cloud)"
+                ],
+                "pros": [
+                    "Ultra-fast inference capabilities",
+                    "Hosted on Groq LPU Cloud"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: ALLaM-2-7b\", \"prompt\": \"Hello\"}'",
+                "ollama": "Run Groq: ALLaM-2-7b on Ollama",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('SDAIA/Groq: ALLaM-2-7b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Llama Prompt Guard 2 22M",
+            "slug": "groq-meta-meta-llamallama-prompt-guard-2-22m",
+            "author": "Meta",
+            "parameter_size": 0.02,
+            "context_window": 512,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 64,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Large parameter size of 0.02B which may impact training efficiency"
+                ],
+                "pros": [
+                    "Ultra-fast inference performance",
+                    "Hosted on Groq LPU Cloud for scalability"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: Llama Prompt Guard 2 22M\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Groq: Llama Prompt Guard 2 22M",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Groq: Llama Prompt Guard 2 22M')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Whisper Large V3 Turbo",
+            "slug": "groq-openai-whisper-large-v3-turbo",
+            "author": "OpenAI",
+            "parameter_size": 8,
+            "context_window": 448,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation: high computational power requirement"
+                ],
+                "pros": [
+                    "Ultra-fast inference",
+                    "High parameter size for accurate results",
+                    "Fast execution with Groq LPU Cloud"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\\\"model\\\": \\\"Groq: Whisper Large V3 Turbo\\\", \\\"prompt\\\": \\\"Hello\\\"}'",
+                "ollama": "ollama run Groq: Whisper Large V3 Turbo",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('OpenAI/Groq: Whisper Large V3 Turbo')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Canopy Labs Orpheus Arabic Saudi",
+            "slug": "groq-canopy-labs-canopylabsorpheus-arabic-saudi",
+            "author": "Canopy Labs",
+            "parameter_size": 8,
+            "context_window": 4000,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 0,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "8B parameter size may require significant computational resources"
+                ],
+                "pros": [
+                    "Ultra-fast inference model",
+                    "Hosted on Groq LPU Cloud",
+                    "Arabic language support"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: Canopy Labs Orpheus Arabic Saudi\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Groq: Canopy Labs Orpheus Arabic Saudi",
+                "python": "from transformers import AutoModelForCausalLM\\nm model = AutoModelForCausalLM.from_pretrained('Canopy Labs/Groq: Canopy Labs Orpheus Arabic Saudi')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Compound",
+            "slug": "groq-groq-groqcompound",
+            "author": "Groq",
+            "parameter_size": 8,
+            "context_window": 131072,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Large model size may be a memory requirement"
+                ],
+                "pros": [
+                    "Ultra-fast inference support",
+                    "Hosted on Groq LPU Cloud for compound computations",
+                    "Large model size accommodates complex operations"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: Compound\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Groq: Compound",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Groq/Groq: Compound')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Whisper",
+            "slug": "groq-openai-whisper-large-v3",
+            "author": "OpenAI",
+            "parameter_size": 8,
+            "context_window": 448,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 4,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitations due to large model size requiring significant computational resources"
+                ],
+                "pros": [
+                    "Ultra-fast inference performance",
+                    "Hosted on Groq LPU Cloud (Whisper)",
+                    "Large model size of 8B parameters"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: Whisper\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Groq: Whisper",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('OpenAI/Groq: Whisper')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Canopy Labs Orpheus V1 English",
+            "slug": "groq-canopy-labs-canopylabsorpheus-v1-english",
+            "author": "Canopy Labs",
+            "parameter_size": 8,
+            "context_window": 4000,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Limited documentation available"
+                ],
+                "pros": [
+                    "Ultra-fast inference",
+                    "High-performance model for AI tasks",
+                    "Large parameter size of 8B"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl -d '{\"model\": \"Groq: Canopy Labs Orpheus V1 English\",\"prompt\": \"Hello\"}' -X POST http://localhost:8080/generate",
+                "ollama": "ollama run Groq: Canopy Labs Orpheus V1 English",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Canopy Labs/Groq: Canopy Labs Orpheus V1 English')\nprompt = \"Hello\"\ngenerative_model = model.generate(prompt)"
+            },
+            "is_verified_gem": false,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Compound Mini",
+            "slug": "groq-groq-groqcompound-mini",
+            "author": "Groq",
+            "parameter_size": 8,
+            "context_window": 131072,
+            "access_type": "free_cloud_api",
+            "category_slug": "low-spec",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "High parameter size for low-spec category",
+                    "Technical limitation 1"
+                ],
+                "pros": [
+                    "Ultra-fast inference",
+                    "Hosted on Groq LPU Cloud",
+                    "Compound Mini"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: Compound Mini\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Groq: Compound Mini",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Groq/Groq: Compound Mini')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Prompt Guard 2 86M",
+            "slug": "groq-meta-meta-llamallama-prompt-guard-2-86m",
+            "author": "Meta",
+            "parameter_size": 0.09,
+            "context_window": 512,
+            "access_type": "free_cloud_api",
+            "category_slug": "vision",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 6,
+                "ideal_quantization": "not specified"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitation 1: High RAM requirements (0.09B parameters)"
+                ],
+                "pros": [
+                    "Ultra-fast inference model",
+                    "High-performance inference"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\\\"model\\\": \\\"Groq: Prompt Guard 2 86M\\\", \\\"prompt\\\": \\\"Hello\\\"}'",
+                "ollama": "ollama run Groq: Prompt Guard 2 86M",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Groq: Prompt Guard 2 86M')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "groq",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Groq: Llama 3.1 8B",
+            "slug": "groq-meta-llama-31-8b-instant",
+            "author": "Meta",
+            "parameter_size": 8,
+            "context_window": 131072,
+            "access_type": "free_cloud_api",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": null,
+                "min_ram_gb": null,
+                "ideal_quantization": null
+            },
+            "pros_cons": {
+                "cons": [
+                    "High hardware requirements"
+                ],
+                "pros": [
+                    "Ultra-fast inference",
+                    "Hosted on Groq LPU Cloud",
+                    "Large 8B parameter size"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Groq: Llama 3.1 8B\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Groq: Llama 3.1 8B",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('Meta/Groq: Llama 3.1 8B')"
+            },
+            "is_verified_gem": false,
+            "review_status": "published",
+            "source": "groq",
             "benchmark_scores": []
         }
     ]

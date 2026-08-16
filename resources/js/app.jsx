@@ -159,6 +159,9 @@ function App() {
         if (model.source === 'ollama') {
             return `https://ollama.com/library/${model.slug || model.name}`;
         }
+        if (model.source === 'groq') {
+            return `https://console.groq.com/docs/models`;
+        }
         return `https://huggingface.co/models?search=${encodeURIComponent(model.name)}`;
     };
 
@@ -991,6 +994,7 @@ function CatalogView({
                             <option value="openrouter">OpenRouter API</option>
                             <option value="huggingface">Hugging Face Hub</option>
                             <option value="ollama">Ollama Library</option>
+                            <option value="groq">Groq Cloud API</option>
                         </select>
                     </div>
 
