@@ -148,21 +148,57 @@ function App() {
     };
 
     const getModelDocUrl = (model) => {
-        if (!model) return '#';
-        if (model.source === 'openrouter') {
-            return `https://openrouter.ai/models/${model.slug || model.name}`;
+        if (!model) return 'https://huggingface.co/models';
+
+        const source = (model.source || '').toLowerCase();
+        const rawName = model.name || '';
+        const rawAuthor = model.author || '';
+
+        // 1. Ollama Library Models
+        if (source === 'ollama') {
+            let cleanName = rawName
+                .replace(/^Ollama\s*Local:\s*/i, '')
+                .replace(/^Ollama:\s*/i, '')
+                .trim();
+
+            if (cleanName.includes(':')) {
+                cleanName = cleanName.split(':')[0];
+            }
+
+            if (cleanName) {
+                return `https://ollama.com/library/${cleanName.toLowerCase()}`;
+            }
+            return 'https://ollama.com/library';
         }
-        if (model.source === 'huggingface') {
-            const path = model.slug || `${model.author}/${model.name}`;
-            return `https://huggingface.co/${path}`;
+
+        // 2. OpenRouter Models
+        if (source === 'openrouter') {
+            let cleanSearch = rawName
+                .replace(/\s*\(free\)/i, '')
+                .replace(/^OpenRouter\s*:\s*/i, '')
+                .trim();
+
+            return `https://openrouter.ai/models?q=${encodeURIComponent(cleanSearch || rawName)}`;
         }
-        if (model.source === 'ollama') {
-            return `https://ollama.com/library/${model.slug || model.name}`;
+
+        // 3. Groq Cloud Models
+        if (source === 'groq') {
+            let cleanSearch = rawName.replace(/^Groq\s*:\s*/i, '').trim();
+            return `https://huggingface.co/models?search=${encodeURIComponent(cleanSearch || rawName)}`;
         }
-        if (model.source === 'groq') {
-            return `https://console.groq.com/docs/models`;
+
+        // 4. Hugging Face Models
+        if (source === 'huggingface') {
+            let cleanName = rawName.replace(/^HuggingFace\s*:\s*/i, '').trim();
+
+            if (rawAuthor && rawAuthor !== 'HuggingFace' && rawAuthor !== 'Local Machine' && rawAuthor !== 'Hugging Face') {
+                return `https://huggingface.co/${rawAuthor}/${cleanName}`;
+            }
+
+            return `https://huggingface.co/models?search=${encodeURIComponent(cleanName || rawName)}`;
         }
-        return `https://huggingface.co/models?search=${encodeURIComponent(model.name)}`;
+
+        return `https://huggingface.co/models?search=${encodeURIComponent(rawName)}`;
     };
 
     const getCategoryIcon = (iconStr) => {
