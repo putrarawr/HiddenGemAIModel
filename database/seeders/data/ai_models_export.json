@@ -1,8 +1,8 @@
 {
     "version": "1.0",
-    "exported_at": "2026-08-16T14:28:32+00:00",
+    "exported_at": "2026-08-16T14:53:22+00:00",
     "total_categories": 5,
-    "total_models": 38,
+    "total_models": 41,
     "categories": [
         {
             "name": "Coding & Software Dev",
@@ -1124,6 +1124,72 @@
             "benchmark_scores": []
         },
         {
+            "name": "Qwen3-Embedding-4B",
+            "slug": "qwen-qwen3-embedding-4b",
+            "author": "Qwen",
+            "parameter_size": 4,
+            "context_window": 4096,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 16,
+                "min_ram_gb": 32,
+                "ideal_quantization": "FP16"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Requires substantial computational resources due to high parameter size"
+                ],
+                "pros": [
+                    "State-of-the-art architecture",
+                    "4B parameter size for high-performance capabilities",
+                    "Open-weights model for reproducibility and transparency"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\"model\": \"Qwen3-Embedding-4B\", \"prompt\": \"Hello\"}'",
+                "ollama": "ollama run Qwen3-Embedding-4B",
+                "python": "from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-Embedding-4B')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
+            "name": "granite-4.1-8b",
+            "slug": "ibm-granite-granite-41-8b",
+            "author": "ibm-granite",
+            "parameter_size": 8,
+            "context_window": 4096,
+            "access_type": "open_weights",
+            "category_slug": "coding",
+            "hardware_specs": {
+                "vram_gb": 4,
+                "min_ram_gb": 8,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "Technical limitations with large memory requirements",
+                    "May require significant hardware resources"
+                ],
+                "pros": [
+                    "Well-suited for large models with 8B parameters",
+                    "Wide range of applications"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\\\"model\\\": \\\"granite-4.1-8b\\\", \\\"prompt\\\": \\\"Hello\\\"}'",
+                "ollama": "ollama run granite-4.1-8b",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('ibm-granite/granite-4.1-8b')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
+            "benchmark_scores": []
+        },
+        {
             "name": "Dots Studio: Dots3-Note Preview (free)",
             "slug": "dots-studio-dots-3-note-previewfree",
             "author": "dots-studio",
@@ -1286,6 +1352,42 @@
             "is_verified_gem": true,
             "review_status": "needs_review",
             "source": "ollama",
+            "benchmark_scores": []
+        },
+        {
+            "name": "Qwen3-4B-Instruct-2507",
+            "slug": "qwen-qwen3-4b-instruct-2507",
+            "author": "Qwen",
+            "parameter_size": 4,
+            "context_window": 4096,
+            "access_type": "open_weights",
+            "category_slug": "research",
+            "hardware_specs": {
+                "vram_gb": 16,
+                "min_ram_gb": 16,
+                "ideal_quantization": "Q4_K_M"
+            },
+            "pros_cons": {
+                "cons": [
+                    "May consume high resources",
+                    "Requires large dataset for training",
+                    "Complex architecture may lead to performance degradation",
+                    "Technical limitation 1"
+                ],
+                "pros": [
+                    "Open-weights model",
+                    "4B Parameter Size suitable for research tasks",
+                    "Highly Customizable"
+                ]
+            },
+            "run_commands": {
+                "curl": "curl http://localhost:11434/api/generate -d '{\\\"model\\\": \\\"Qwen3-4B-Instruct-2507\\\", \\\"prompt\\\": \\\"Hello\\\"}'",
+                "ollama": "ollama run Qwen3-4B-Instruct-2507",
+                "python": "from transformers import AutoModelForCausalLM\\nmodel = AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-4B-Instruct-2507')"
+            },
+            "is_verified_gem": true,
+            "review_status": "published",
+            "source": "huggingface",
             "benchmark_scores": []
         }
     ]

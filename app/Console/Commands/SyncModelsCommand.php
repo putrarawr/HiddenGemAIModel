@@ -20,14 +20,16 @@ class SyncModelsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:sync-models {--source=all : Source to sync (all, openrouter, huggingface, ollama)}';
+    protected $signature = 'app:sync-models 
+                            {--source=all : Source to sync (all, openrouter, huggingface, ollama)} 
+                            {--force : Force overwrite existing models instead of skipping duplicates}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Sync AI models from OpenRouter, HuggingFace, and Ollama, run LLM extraction agent, and index hidden gems.';
+    protected $description = 'Sync AI models from OpenRouter, HuggingFace, and Ollama, skip duplicates, run LLM extraction agent, and index hidden gems.';
 
     /**
      * Execute the console command.
@@ -40,7 +42,8 @@ class SyncModelsCommand extends Command
     ): int {
         $startedAt = Carbon::now();
         $sourceOption = strtolower($this->option('source'));
-        $this->info("Starting AI Model Ingestion Sync [Source: {$sourceOption}]...");
+        $forceOverwrite = $this->option('force');
+        $this->info("Starting AI Model Ingestion Sync [Source: {$sourceOption}] [Force Overwrite: " . ($forceOverwrite ? 'Yes' : 'No') . "]...");
 
         $this->seedCategories();
 
@@ -57,7 +60,7 @@ class SyncModelsCommand extends Command
         // Scrape HuggingFace
         if ($sourceOption === 'all' || $sourceOption === 'huggingface') {
             $this->info('Scraping HuggingFace open-weights models...');
-            $hfModels = $huggingFaceScraper->fetchOpenWeightModels(25);
+            $hfModels = $huggingFaceScraper->fetchOpenWeightModels(30);
             $this->info('Found ' . count($hfModels) . ' open-weights HuggingFace models.');
             $scrapedModels = array_merge($scrapedModels, $hfModels);
         }
@@ -71,11 +74,35 @@ class SyncModelsCommand extends Command
         }
 
         $itemsProcessed = 0;
+        $itemsSkipped = 0;
         $errorMessages = [];
+        $processedSlugs = [];
 
         foreach ($scrapedModels as $modelData) {
             try {
-                $slug = $modelData['slug'];
+                $slug = Str::slug($modelData['slug'] ?? ($modelData['author'] . '-' . $modelData['name']));
+
+                // 1. In-batch duplicate validation: skip if already processed in current run
+                if (in_array($slug, $processedSlugs)) {
+                    $itemsSkipped++;
+                    $this->line("  ➜ Skipped duplicate in current batch: {$modelData['author']}/{$modelData['name']} [Slug: {$slug}]");
+                    continue;
+                }
+
+                // 2. Database duplicate validation: skip if already exists in database unless --force flag is passed
+                $existingModel = AiModel::where('slug', $slug)
+                    ->orWhere(function ($query) use ($modelData) {
+                        $query->where('name', $modelData['name'])
+                              ->where('author', $modelData['author']);
+                    })
+                    ->first();
+
+                if ($existingModel && !$forceOverwrite) {
+                    $itemsSkipped++;
+                    $processedSlugs[] = $slug;
+                    $this->line("  ➜ Skipped existing model: {$existingModel->author}/{$existingModel->name} [Status: Already Indindexed]");
+                    continue;
+                }
 
                 $extracted = $extractor->extractAttributes($modelData);
 
@@ -105,6 +132,7 @@ class SyncModelsCommand extends Command
                 ];
 
                 $aiModel = AiModel::updateOrCreate(['slug' => $slug], $attributes);
+                $processedSlugs[] = $slug;
 
                 $itemsProcessed++;
                 $this->line("  ✓ Synced model: {$aiModel->author}/{$aiModel->name} [Source: {$aiModel->source}] [Status: {$aiModel->review_status}]");
@@ -128,7 +156,7 @@ class SyncModelsCommand extends Command
             'finished_at' => $finishedAt,
         ]);
 
-        $this->info("Sync completed! Processed {$itemsProcessed} models across sources. Logged status: [{$status}].");
+        $this->info("Sync completed! Processed {$itemsProcessed} new models, skipped {$itemsSkipped} duplicates. Logged status: [{$status}].");
 
         return Command::SUCCESS;
     }

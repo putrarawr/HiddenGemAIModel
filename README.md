@@ -1,58 +1,141 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hidden Gem AI Discovery Hub
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Agregator model AI terotomatisasi untuk mengindeks model-model AI berukuran efisien (<=14B parameters) yang siap dijalankan pada spesifikasi laptop terjangkau (8GB - 16GB RAM).
 
-## About Laravel
+Repository URL: https://github.com/putrarawr/HiddenGemAIModel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Automated Model Mining: Indeks terotomatisasi dari OpenRouter Free Models, Hugging Face Hub Open-Weights, dan Ollama Library.
+- Duplicate Validation & Skip System: Skrip sinkronisasi mendeteksi model yang sudah terindeks berdasarkan slug dan metadata untuk mencegah duplikasi data.
+- Hardware RAM Fit Scoring: Mengkategorikan kebutuhan RAM laptop (Tier 8GB, 12GB, 16GB) berdasarkan estimasi kuantisasi 4-bit (Q4_K_M).
+- One-Click Execution Config: Menyediakan perintah instan untuk Ollama CLI, Python SDK (Hugging Face Transformers), dan cURL HTTP API.
+- Direct Official Documentation Link: Setiap model memiliki tautan langsung ke halaman dokumentasi resmi AI (OpenRouter, Hugging Face Hub, Ollama Library).
+- Obsidian Liquid Glass UI: Antarmuka modern dengan komponen kaca cair, animasi Framer Motion, filter kategori interaktif, pagination, skeleton loader, dan switch mode gelap/terang.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Teknologi Stack
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Backend Framework: Laravel 12 (PHP 8.5)
+- Frontend Library: React 19, Framer Motion, Lucide React
+- Styling Engine: Tailwind CSS v4 (Obsidian & Soft Slate Theme)
+- Build System: Vite v8
+- Database: PostgreSQL (ai-model-db)
+- LLM Extractor Agent: Gemini / Groq API
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## Persyaratan Sistem
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- PHP 8.2 atau lebih baru
+- Composer 2.x
+- Node.js 18.x atau 20.x dan NPM
+- PostgreSQL Server 14+
+- Ollama CLI (opsional, untuk menjalankan model lokal)
+
+---
+
+## Cara Instalasi dan Setup Project
+
+### 1. Clone Repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/putrarawr/HiddenGemAIModel.git
+cd HiddenGemAIModel
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Instalasi Dependensi Backend (PHP)
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Konfigurasi Environment File
 
-## Code of Conduct
+Salin file `.env.example` menjadi `.env`:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Sesuaikan konfigurasi koneksi database PostgreSQL pada file `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=ai-model-db
+DB_USERNAME=postgres
+DB_PASSWORD=
+```
 
-## License
+Generate application key:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+### 4. Migrasi Database dan Seed Dataset Awal
+
+Jalankan perintah migrasi tabel database dan impor dataset 41 model AI terkurasi:
+
+```bash
+php artisan migrate --force
+php artisan app:import-models
+```
+
+### 5. Instalasi & Build Dependensi Frontend (Assets)
+
+```bash
+npm install
+npm run build
+```
+
+### 6. Jalankan Server Lokal
+
+```bash
+php artisan serve
+```
+
+Aplikasi web dapat diakses di browser melalui alamat: `http://127.0.0.1:8000/`
+
+---
+
+## Command CLI Utama
+
+### 1. Scraping & Sync Model Baru (Auto Skip Duplikat)
+
+Untuk menjalankan scraper terotomatisasi mengindeks model AI baru dan mengekstrak metrik hardware:
+
+```bash
+php artisan app:sync-models
+```
+
+Opsi Perintah:
+- Sync khusus sumber tertentu: `php artisan app:sync-models --source=openrouter` (opsi: `all`, `openrouter`, `huggingface`, `ollama`).
+- Paksa timpa model lama: `php artisan app:sync-models --force`.
+
+### 2. Ekspor Dataset Model ke File JSON
+
+Untuk mengekspor seluruh data model AI dan kategori ke dataset portabel JSON:
+
+```bash
+php artisan app:export-models
+```
+
+File hasil ekspor tersimpan di `storage/app/ai_models_export.json` dan `database/seeders/data/ai_models_export.json`.
+
+### 3. Impor Dataset dari JSON
+
+```bash
+php artisan app:import-models
+```
+
+---
+
+## Lisensi
+
+Project ini dirilis di bawah lisensi MIT License.
