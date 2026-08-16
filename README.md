@@ -6,15 +6,19 @@ Repository URL: https://github.com/putrarawr/HiddenGemAIModel
 
 ---
 
-## Preview Antarmuka Application
+## Preview Antarmuka Aplikasi
 
-![Hidden Gem AI Discovery Hub Interface Preview](docs/preview.png)
+### Overview Landing Page
+![Hidden Gem AI Landing Page Preview](docs/landing_preview.png)
+
+### Katalog Model AI
+![Hidden Gem AI Catalog Model Preview](docs/catalog_preview.png)
 
 ---
 
 ## Fitur Utama
 
-- 103+ Curated AI Models Dataset: Mengindeks lebih dari 103 model AI efisien (<=14B) dari berbagai sumber registry ternama.
+- 103+ Curated AI Models Dataset: Mengindeks 103 model AI efisien (<=14B) dari berbagai sumber registry ternama.
 - Automated Multi-Source Mining: Indeks terotomatisasi dari OpenRouter Free Models, Hugging Face Hub Open-Weights, Ollama Library, dan Groq Cloud LPU API.
 - Duplicate Validation & Skip System: Skrip sinkronisasi mendeteksi model yang sudah terindeks berdasarkan slug dan metadata untuk mencegah duplikasi data.
 - Hardware RAM Fit Scoring: Mengkategorikan kebutuhan RAM laptop (Tier 8GB, 12GB, 16GB) berdasarkan estimasi kuantisasi 4-bit (Q4_K_M).
